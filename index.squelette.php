@@ -50,3 +50,5 @@ try {
 }
 
 echo "\n=== Fin des tests ===\n";
+
+// test de connexion
