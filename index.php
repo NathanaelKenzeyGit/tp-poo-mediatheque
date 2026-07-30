@@ -12,15 +12,17 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/src/Livre.php';
 
-echo "=== ÉTAPE 1 — Test des classes ===\n\n";
+/* echo "=== ÉTAPE 1 — Test des classes ===\n\n";
 
 // ---------- NIVEAU 1 ----------
-echo "--- Niveau 1 : instanciation et getters ---\n";
+echo "--- Niveau 1 : instanciation et getters ---\n"; */
 
 $livres = [
-    new Livre('Dune', 'Frank Herbert', 1965),
-    new Livre('Le Comte de Monte-Cristo', 'Alexandre Dumas', 1844),
-    new Livre('La Horde du Contrevent', 'Alain Damasio', 2004),
+    new Livre('Dune', 'Frank Herbert', 1965, 21212),
+    new Livre('Le Comte de Monte-Cristo', 'Alexandre Dumas', 1844, 51515),
+    new Livre('La Horde du Contrevent', 'Alain Damasio', 2004, 15151),
+    new Livre('', 'Antoine de Saint Exupéry', 1943, 15151),
+
 ];
 
 foreach ($livres as $livre) {
@@ -29,7 +31,7 @@ foreach ($livres as $livre) {
         . ' | ' . $livre->getAnnee() . "\n";
 }
 
-echo "\nAttendu : les 3 livres avec titre, auteur et année.\n\n";
+/* echo "\nAttendu : les 3 livres avec titre, auteur et année.\n\n";
 
 // ---------- NIVEAU 2 ----------
 echo "--- Niveau 2 : méthode afficher() ---\n";
@@ -49,6 +51,6 @@ try {
     echo 'OK — exception interceptée : ' . $e->getMessage() . "\n";
 }
 
-echo "\n=== Fin des tests ===\n";
+echo "\n=== Fin des tests ===\n"; */
 
 // test de connexion

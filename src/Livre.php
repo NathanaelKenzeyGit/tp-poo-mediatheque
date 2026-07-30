@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -27,11 +28,22 @@ class Livre
      *                                $this->titre = $titre;
      *                            }
      */
+    private int $isbn;
     public function __construct(
         private string $titre,
         private string $auteur,
-        private int $annee
-    ) {}
+        private int $annee,
+
+    ) {
+        $this->titre = $titre;
+        $this->auteur = $auteur;
+        $this->annee = $annee;
+    }
+
+    public function __toString(): string
+    {
+        return "{$this->titre} de {$this->auteur} écrit en {$this->annee}";
+    }
 
     // =================================================================
     // NIVEAU 1 — Les accesseurs (getters)
@@ -45,7 +57,7 @@ class Livre
      */
     public function getTitre(): string
     {
-        // TODO 1 : votre code ici
+        return $this->titre;
     }
 
     /**
@@ -53,7 +65,7 @@ class Livre
      */
     public function getAuteur(): string
     {
-        // TODO 2 : votre code ici
+        return $this->auteur;
     }
 
     /**
@@ -62,8 +74,13 @@ class Livre
      */
     public function getAnnee(): int
     {
-        // TODO 3 : votre code ici
+        return $this->annee;
     }
+
+ /*    public function getIsbn(): int
+    {
+        return $this->isbn;
+    } */
 
     // =================================================================
     // NIVEAU 2 — Mutateur avec validation + méthode métier
@@ -85,9 +102,22 @@ class Livre
      */
     public function setTitre(string $titre): void
     {
-        // TODO 4 : votre code ici
+        if (empty(trim($titre))) {
+            throw new InvalidArgumentException('Le titre ne peut pas être vide');
+        } else {
+            $this->titre = $titre;
+        }
     }
 
+/*     public function setIsbn(string $isbn): bool
+    {
+        if (strlen($isbn) !== 13) {
+            throw new Exception('Le format n\'est pas valide');
+        }
+        $this->isbn = (int) $isbn;
+        return true;
+    }
+ */
     /**
      * TODO 5 — Retournez une description formatée du livre, au format :
      *   Dune (1965), de Frank Herbert
@@ -99,6 +129,6 @@ class Livre
      */
     public function afficher(): string
     {
-        // TODO 5 : votre code ici
+        return "{$this->titre} ({$this->annee}), de {$this->auteur}";
     }
 }
