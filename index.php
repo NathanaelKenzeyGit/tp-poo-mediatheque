@@ -18,26 +18,26 @@ require_once __DIR__ . '/src/Livre.php';
 echo "--- Niveau 1 : instanciation et getters ---\n"; */
 
 $livres = [
-    new Livre('Dune', 'Frank Herbert', 1965, 21212),
-    new Livre('Le Comte de Monte-Cristo', 'Alexandre Dumas', 1844, 51515),
-    new Livre('La Horde du Contrevent', 'Alain Damasio', 2004, 15151),
-    new Livre('', 'Antoine de Saint Exupéry', 1943, 15151),
+    new Livre('Dune', 'Frank Herbert', 1965),
+    new Livre('Le Comte de Monte-Cristo', 'Alexandre Dumas', 1844),
+    new Livre('La Horde du Contrevent', 'Alain Damasio', 2004),
+    new Livre('', 'Antoine de Saint Exupéry', 1943),
 
 ];
 
 foreach ($livres as $livre) {
-    echo '- ' . $livre->getTitre()
-        . ' | ' . $livre->getAuteur()
-        . ' | ' . $livre->getAnnee() . "\n";
+    echo $livre->afficher() . "\n , ";
 }
+
+
 
 /* echo "\nAttendu : les 3 livres avec titre, auteur et année.\n\n";
 
 // ---------- NIVEAU 2 ----------
 echo "--- Niveau 2 : méthode afficher() ---\n";
-echo $livres[0]->afficher() . "\n";
-echo "Attendu : Dune (1965), de Frank Herbert\n\n";
 
+echo "Attendu : Dune (1965), de Frank Herbert\n\n";
+echo $livres[0]->afficher() . "\n";
 echo "--- Niveau 2 : setter valide ---\n";
 $livres[0]->setTitre('Dune — Le cycle');
 echo $livres[0]->getTitre() . "\n";
